@@ -1,0 +1,20 @@
+class Solution {
+public:
+    void reversed(vector<int>& nums, int low, int high)
+    {
+        while(low<high)
+        {
+            int temp = nums[low];
+            nums[low] = nums[high];
+            nums[high] = temp;
+            low++;
+            high--;
+        }
+    }    
+    void rotate(vector<int>& nums, int k) {
+        k = k % nums.size();
+        reversed(nums,nums.size()-k,nums.size()-1);
+        reversed(nums, 0, nums.size()-k-1);
+        reversed(nums, 0, nums.size()-1);
+    }
+};
